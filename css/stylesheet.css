@@ -1,5 +1,26 @@
 @import "normalize.css";
 
+@font-face {
+  font-family: Open Sans;
+  src: url(../fonts/OpenSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(../fonts/Poppins-Medium.ttf);
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url(../fonts/Roboto-Regular.ttf);
+}
+
+:root {
+  --desc-content-w: 1080px;
+  --ipad-content-w: 612px;
+  --mobile-content-w: 268px;
+}
+
 html, body {
   width: 100%;
   height: 100%;
@@ -24,7 +45,7 @@ a {
   min-height: 100%;
   display: grid;
   grid-template-columns: 16.66667% 83.33333%;
-  grid-template-rows: 240px auto;
+  grid-template-rows: 201px auto;
   grid-template-areas: 
   "sidebar header"
   "sidebar main";
@@ -41,22 +62,26 @@ a {
   line-height: 38px;
   font-weight: 600;
   opacity: 0.85;
-  margin-left: calc((100% - 1080px) / 2);
+  margin-top: 41px;
+  margin-left: calc((100% - var(--desc-content-w)) / 2);
   margin-bottom: 31px;
 }
 
 .header__search-form { 
   border: 1px solid rgba(51, 51, 51, 0.2);
   border-radius: 50px;
-  margin-left: calc((100% - 1080px) / 2);
-  margin-right: calc((100% - 1080px) / 2);
+  margin-left: calc((100% - var(--desc-content-w)) / 2);
+  margin-right: calc((100% - var(--desc-content-w)) / 2);
 }
 
 .header__search-input { 
+  font-size: 18px;
+  line-height: 28px;
   width: 100%;
   border: none;
-  margin: 12px 16px 12px 18px;
-  background: url(../img/Search/icon/search.png) no-repeat scroll;
+  margin: 11px 16px 11px 18px;
+  background: url(../img/Search/icon/search.png) no-repeat left center;
+  padding: 0;
   padding-left: 27px;
 }
 
@@ -65,8 +90,6 @@ a {
 }
 
 .header__search-input::placeholder {
-  font-size: 18px;
-  line-height: 28px;
   color: rgba(0, 0, 0, 0.45);
 }
 
@@ -80,8 +103,8 @@ a {
 .container {
   display: flex;
   flex-wrap: wrap;
-  margin-left: calc((100% - 1080px) / 2);
-  margin-right: calc((100% - 1080px) / 2);
+  margin-left: calc((100% - var(--desc-content-w)) / 2);
+  margin-right: calc((100% - var(--desc-content-w)) / 2);
   margin-top: 40px;
 }
 
@@ -173,6 +196,8 @@ a {
   font-size: 16px;
   line-height: 24px;
   font-weight: 500;
+  font-family: Poppins;
+  text-transform: uppercase;
 }
 
 .navbar { }
@@ -207,6 +232,241 @@ a {
 
 @media screen and (width:768px) {
 
+  .wrapper {
+    grid-template-columns: 13.54167% 86.45833%;
+    grid-template-rows: 181px auto;
+  }
+
+  .header__title { 
+    font-size: 28px;
+    line-height: 38px;
+    font-weight: 600;
+    text-align: right;
+    opacity: 0.85;
+    margin-top: 31px;
+    margin-right: calc((100% - var(--ipad-content-w)) / 2);
+    margin-bottom: 33px;
+  }
+  
+  .header__search-form { 
+    border: 1px solid rgba(51, 51, 51, 0.2);
+    border-radius: 50px;
+    margin-left: calc((100% - var(--ipad-content-w)) / 2);
+    margin-right: calc((100% - var(--ipad-content-w)) / 2);
+  }
+  
+  .header__search-input { 
+    font-size: 18px;
+    line-height: 28px;
+    width: 100%;
+    border: none;
+    margin: 11px 16px 11px 18px;
+    background: url(../img/Search/icon/search.png) no-repeat left center;
+    padding: 0;
+    padding-left: 27px;
+  }
+
+  .container {
+    margin-left: calc((100% - var(--ipad-content-w)) / 2);
+    margin-right: calc((100% - var(--ipad-content-w)) / 2);
+    margin-top: 27px;
+  }
+  
+  .coupon, .coupon:nth-child(3n) { 
+    height: 144px;
+    width: 296px;
+    margin-right: 20px;
+  }
+  
+  .coupon:nth-child(2n) {
+    margin-right: 0;
+  }
+    
+  .coupon__text-content {
+    flex: 1 0 auto;
+    margin-left: 18px;
+  }
+  
+  .coupon__title { 
+    font-size: 14px;
+    margin-top: 15px;
+  }
+  
+  .coupon__description { 
+    font-size: 14px;
+    margin-bottom: 31px;
+  }
+  
+  .coupon__value { 
+    margin-bottom: 3px;
+  }
+  
+  .coupon__type { 
+    margin-bottom: 15px;  
+  }
+  
+  .coupon__image { 
+    flex: 0 0 104px;
+    width: 104px;
+    height: 144px;
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+    background-color: #F3F4F9;
+    font-family: Open Sans;
+    padding: 40px 40px 68px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+
+  .sidebar::after {
+    content: url(../img/Sidebar/Меню/burger\ menu.png);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: -48px;
+    width: 48px;
+    height: 106px;
+    background-color: inherit;
+    z-index: 1;
+    border-radius: 0 50% 50% 0;
+  }
+  
+  /* .sidebar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -48px;
+    width: 48px;
+    height: 106px;
+    background-color: inherit;
+    z-index: 1;
+    border-radius: 0 50% 50% 0;
+  } */
+
+  .logo { 
+    margin-bottom: 62px;
+  }
+  
+  .logo__image { 
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+  
+  .logo__title { 
+    display: none;
+  }
+  
+  .navbar { }
+  
+  .menu { }
+  
+  .menu-item { 
+    margin-bottom: 40px;
+  }
+  
+  .menu-item_active {
+    color: #34ABE0;
+  }
+  
+  .menu-item__link { 
+    display: block;
+  }
+  
+  .menu-item__image { 
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+  
+  .menu-item__title {
+    display: none;
+  }
+}
+
+@media screen and (width: 320px) {
+  .wrapper {
+    grid-template-columns: 3.75% 96.25%;
+    grid-template-rows: 169px auto;
+  }
+
+  .header__title { 
+    font-size: 24px;
+    line-height: 32px;
+    text-align: right;
+    margin-top: 37px;
+    margin-right: calc((100% - var(--mobile-content-w)) / 2);
+    margin-bottom: 21px;
+  }
+  
+  .header__search-form { 
+    margin-left: calc((100% - var(--mobile-content-w)) / 2);
+    margin-right: calc((100% - var(--mobile-content-w)) / 2);
+  }
+  
+  .header__search-input { 
+    font-size: 14px;
+    line-height: 28px;
+  }
+
+  .container {
+    margin-left: calc((100% - var(--mobile-content-w)) / 2);
+    margin-right: calc((100% - var(--mobile-content-w)) / 2);
+    margin-top: 27px;
+  }
+  
+  .coupon, .coupon:nth-child(n) { 
+    height: 144px;
+    width: 296px;
+    margin-right: 20px;
+  }
+    
+  .coupon__text-content {
+    flex: 1 0 auto;
+    margin-left: 20px;
+  }
+  
+  .coupon__title { 
+    font-size: 12px;
+    margin-top: 16px;
+    margin-bottom: 0;
+  }
+  
+  .coupon__description { 
+    font-size: 12px;
+    margin-bottom: 22px;
+  }
+  
+  .coupon__value { 
+    font-size: 28px;
+    margin-bottom: 0;
+  }
+  
+  .coupon__type { 
+    margin-bottom: 16px;  
+  }
+  
+  .coupon__image { 
+    flex: 0 0 89px;
+    width: 89px;
+    height: 130px;
+  }
+
+  /* .sidebar {
+    position: fixed !important;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+  } */
+
   .logo__title {
     display: none;
   }
@@ -214,12 +474,4 @@ a {
   .menu-item__title {
     display: none;
   }
-}
-
-@media screen and () {
-
-}
-
-@media screen and () {
-
 }
