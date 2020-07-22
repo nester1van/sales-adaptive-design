@@ -148,23 +148,7 @@ a {
   border-radius: 10px;
   -webkit-box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
           box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
-  /* try make triangle */
-  /* position: relative;  */
 }
-
-/* .coupon::before {
-  content: "";
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  left: -5px;
-  top: calc(50% - 5px);
-  border-top: 1px solid inherit;
-  border-right: 1px solid inherit;
-  background: #FAFAFA;
-  border-radius: 1px;
-  transform: rotate(45deg);
-} */
 
 .coupon:nth-child(3n) {
   margin-right: 0;
@@ -258,10 +242,6 @@ a {
   font-family: Poppins;
   text-transform: uppercase;
 }
-
-.navbar { }
-
-.menu { }
 
 .menu-button {
   display: none;
@@ -457,11 +437,7 @@ a {
   .logo__title_open-tablet { 
     display: inline-block;
   }
-  
-  .navbar { }
-  
-  .menu { }
-  
+
   .menu-button {
     display: block;
     background: url(../img/Sidebar/Меню/burger\ menu.png)no-repeat center,
@@ -657,11 +633,6 @@ a {
   .logo__title {
     font-size: 14px;
     line-height: 21px;
-  }
-  
-  .navbar { }
-  
-  .menu { 
   }
   
   .menu-button {
