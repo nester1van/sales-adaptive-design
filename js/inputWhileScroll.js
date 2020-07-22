@@ -1,10 +1,15 @@
-// (function(){
-//   if (window.innerWidth < 1000) {
-//     console.log(window.innerWidth);
-//     const searchForm = document.querySelector(".header__search-form");
-//     window.addEventListener("scroll", () => {
-//       searchForm.classList.toggle("header__search-form_onscroll")
-//       window.removeEventListener("scroll", () => {});
-//     })
-//   }
-// })();
+(function(){
+  const searchForm = document.querySelector(".header__search-form");
+  const searchInput = searchForm.firstElementChild;
+
+  window.addEventListener("scroll", () => {
+      if (searchForm.getBoundingClientRect().y < 85) {
+        searchForm.classList.add("header__search-form_scroll");
+        searchInput.classList.add("header__search-input_scroll");
+      } else {
+        searchForm.classList.remove("header__search-form_scroll");
+        searchInput.classList.remove("header__search-input_scroll");
+      }
+      
+  })
+})();
